@@ -21,14 +21,17 @@ public class Palindrome {
      * <p>Результат: true</p>
      */
     public boolean isPalindrome(String text) {
-        StringBuilder cleanText = new StringBuilder();
+        StringBuilder cleanText = new StringBuilder("");
 
-        for (char symbol : text.toUpperCase().toCharArray()) {
-            if (((int) symbol >= 48 && (int) symbol <= 57)
-                    || ((int) symbol >= 65 && (int) symbol <= 90)) {
-                cleanText.append(symbol);
-            }
-        }
+        cleanText.append(text.toUpperCase().replaceAll(" ", "")
+                .replaceAll("!", "")
+                .replaceAll("\\?", "")
+                .replaceAll(",", "")
+                .replaceAll("\\.", "")
+                .replaceAll("[)]", "")
+                .replaceAll("[(]", "")
+                .replaceAll("[']", "")
+                .replaceAll("-", ""));
 
         return cleanText.toString().equals(cleanText.reverse().toString());
     }
