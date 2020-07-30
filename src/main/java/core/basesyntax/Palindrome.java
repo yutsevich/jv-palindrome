@@ -21,17 +21,10 @@ public class Palindrome {
      * <p>Результат: true</p>
      */
     public boolean isPalindrome(String text) {
-        StringBuilder cleanText = new StringBuilder("");
+        StringBuilder cleanText = new StringBuilder();
 
         cleanText.append(text.toUpperCase().replaceAll(" ", "")
-                .replaceAll("!", "")
-                .replaceAll("\\?", "")
-                .replaceAll(",", "")
-                .replaceAll("\\.", "")
-                .replaceAll("[)]", "")
-                .replaceAll("[(]", "")
-                .replaceAll("[']", "")
-                .replaceAll("-", ""));
+                .replaceAll("[)('\\-!,.?]", "")  );
 
         return cleanText.toString().equals(cleanText.reverse().toString());
     }
