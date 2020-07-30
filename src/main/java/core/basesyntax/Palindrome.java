@@ -24,7 +24,7 @@ public class Palindrome {
         StringBuilder cleanText = new StringBuilder();
 
         cleanText.append(text.toUpperCase().replaceAll(" ", "")
-                .replaceAll("[)('\\-!,.?]", "")  );
+                .replaceAll("[)('\\-!,.?]", ""));
 
         return cleanText.toString().equals(cleanText.reverse().toString());
     }
